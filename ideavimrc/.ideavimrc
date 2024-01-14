@@ -2,10 +2,9 @@ set clipboard+=unnamed
 set clipboard+=ideaput
 set relativenumber
 set incsearch
-set scrolloff=16
+set scrolloff=100
 set ideajoin
 set showmode
-
 
 let mapleader=" "
 

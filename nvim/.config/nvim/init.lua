@@ -196,6 +196,10 @@ require('lazy').setup({
     },
 
     {
+        'marcopaganini/termschool-vim-theme',
+    },
+
+    {
         -- Onedark theme by navarasu
         'navarasu/onedark.nvim',
         priority = 1000,
@@ -211,7 +215,6 @@ require('lazy').setup({
         opts = {
             options = {
                 icons_enabled = true,
-                theme = 'onedark',
                 component_separators = '|',
                 section_separators = '',
             },
@@ -664,6 +667,7 @@ cmp.setup {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
+        { name = 'buffer' },
     },
 }
 
