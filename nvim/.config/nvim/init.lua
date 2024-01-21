@@ -193,18 +193,9 @@ require('lazy').setup({
         -- Tokyonight theme by Folke
         'folke/tokyonight.nvim',
         style = "night",
-    },
-
-    {
-        'marcopaganini/termschool-vim-theme',
-    },
-
-    {
-        -- Onedark theme by navarasu
-        'navarasu/onedark.nvim',
         priority = 1000,
         config = function()
-            vim.cmd.colorscheme 'onedark'
+            vim.cmd.colorscheme 'tokyonight'
         end,
     },
 

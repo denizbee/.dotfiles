@@ -72,7 +72,6 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -104,4 +103,4 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias vim="nvim"
 alias sftpdev='sshpass -p 12Ozan34, sftp b2220356166@dev.cs.hacettepe.edu.tr'
 alias sshdev='sshpass -p 12Ozan34, ssh b2220356166@dev.cs.hacettepe.edu.tr'
-alias nvimconfig="cd ~/.config/nvim; nvim init.lua"
+alias nvimconfig="cd ~/.config/nvim"
