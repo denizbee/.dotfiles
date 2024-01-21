@@ -689,7 +689,6 @@ vim.wo.fillchars = 'eob: '
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
-vim.opt.colorcolumn = '80'
 
 --Codeium disable
 vim.g.codeium_enabled = false

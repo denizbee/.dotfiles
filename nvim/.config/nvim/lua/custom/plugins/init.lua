@@ -20,5 +20,19 @@ return {
     {
         "nvim-telescope/telescope-file-browser.nvim",
         dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    },
+    {
+        "windwp/nvim-ts-autotag",
+        ft = {
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "html",
+            "css",
+        },
+        config = function()
+            require("nvim-ts-autotag").setup()
+        end
     }
 }
