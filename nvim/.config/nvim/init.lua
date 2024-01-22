@@ -114,80 +114,80 @@ require('lazy').setup({
 
     -- Useful plugin to show you pending keybinds.
     { 'folke/which-key.nvim',  opts = {} },
-    -- {
-    --   -- Adds git related signs to the gutter, as well as utilities for managing changes
-    --     'lewis6991/gitsigns.nvim',
-    --     opts = {
-    --       -- See `:help gitsigns.txt`
-    --       signs = {
-    --         add = { text = '+' },
-    --         change = { text = '~' },
-    --         delete = { text = '_' },
-    --         topdelete = { text = '‾' },
-    --         changedelete = { text = '~' },
-    --       },
-    --       on_attach = function(bufnr)
-    --         local gs = package.loaded.gitsigns
-    --
-    --         local function map(mode, l, r, opts)
-    --           opts = opts or {}
-    --           opts.buffer = bufnr
-    --           vim.keymap.set(mode, l, r, opts)
-    --         end
-    --
-    --         -- Navigation
-    --         map({ 'n', 'v' }, ']c', function()
-    --           if vim.wo.diff then
-    --             return ']c'
-    --           end
-    --           vim.schedule(function()
-    --             gs.next_hunk()
-    --           end)
-    --           return '<Ignore>'
-    --         end, { expr = true, desc = 'Jump to next hunk' })
-    --
-    --         map({ 'n', 'v' }, '[c', function()
-    --           if vim.wo.diff then
-    --             return '[c'
-    --           end
-    --           vim.schedule(function()
-    --             gs.prev_hunk()
-    --           end)
-    --           return '<Ignore>'
-    --         end, { expr = true, desc = 'Jump to previous hunk' })
-    --
-    --         -- Actions
-    --         -- visual mode
-    --         map('v', '<leader>hs', function()
-    --           gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
-    --         end, { desc = 'stage git hunk' })
-    --         map('v', '<leader>hr', function()
-    --           gs.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
-    --         end, { desc = 'reset git hunk' })
-    --         -- normal mode
-    --         map('n', '<leader>hs', gs.stage_hunk, { desc = 'git stage hunk' })
-    --         map('n', '<leader>hr', gs.reset_hunk, { desc = 'git reset hunk' })
-    --         map('n', '<leader>hS', gs.stage_buffer, { desc = 'git Stage buffer' })
-    --         map('n', '<leader>hu', gs.undo_stage_hunk, { desc = 'undo stage hunk' })
-    --         map('n', '<leader>hR', gs.reset_buffer, { desc = 'git Reset buffer' })
-    --         map('n', '<leader>hp', gs.preview_hunk, { desc = 'preview git hunk' })
-    --         map('n', '<leader>hb', function()
-    --           gs.blame_line { full = false }
-    --         end, { desc = 'git blame line' })
-    --         map('n', '<leader>hd', gs.diffthis, { desc = 'git diff against index' })
-    --         map('n', '<leader>hD', function()
-    --           gs.diffthis '~'
-    --         end, { desc = 'git diff against last commit' })
-    --
-    --         -- Toggles
-    --         map('n', '<leader>tb', gs.toggle_current_line_blame, { desc = 'toggle git blame line' })
-    --         map('n', '<leader>td', gs.toggle_deleted, { desc = 'toggle git show deleted' })
-    --
-    --         -- Text object
-    --         map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'select git hunk' })
-    --       end,
-    --     },
-    --   },
+    {
+        -- Adds git related signs to the gutter, as well as utilities for managing changes
+        'lewis6991/gitsigns.nvim',
+        opts = {
+            -- See `:help gitsigns.txt`
+            signs = {
+                add = { text = '+' },
+                change = { text = '~' },
+                delete = { text = '_' },
+                topdelete = { text = '‾' },
+                changedelete = { text = '~' },
+            },
+            on_attach = function(bufnr)
+                local gs = package.loaded.gitsigns
+
+                local function map(mode, l, r, opts)
+                    opts = opts or {}
+                    opts.buffer = bufnr
+                    vim.keymap.set(mode, l, r, opts)
+                end
+
+                -- Navigation
+                map({ 'n', 'v' }, ']c', function()
+                    if vim.wo.diff then
+                        return ']c'
+                    end
+                    vim.schedule(function()
+                        gs.next_hunk()
+                    end)
+                    return '<Ignore>'
+                end, { expr = true, desc = 'Jump to next hunk' })
+
+                map({ 'n', 'v' }, '[c', function()
+                    if vim.wo.diff then
+                        return '[c'
+                    end
+                    vim.schedule(function()
+                        gs.prev_hunk()
+                    end)
+                    return '<Ignore>'
+                end, { expr = true, desc = 'Jump to previous hunk' })
+
+                -- Actions
+                -- visual mode
+                map('v', '<leader>hs', function()
+                    gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
+                end, { desc = 'stage git hunk' })
+                map('v', '<leader>hr', function()
+                    gs.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
+                end, { desc = 'reset git hunk' })
+                -- normal mode
+                map('n', '<leader>hs', gs.stage_hunk, { desc = 'git stage hunk' })
+                map('n', '<leader>hr', gs.reset_hunk, { desc = 'git reset hunk' })
+                map('n', '<leader>hS', gs.stage_buffer, { desc = 'git Stage buffer' })
+                map('n', '<leader>hu', gs.undo_stage_hunk, { desc = 'undo stage hunk' })
+                map('n', '<leader>hR', gs.reset_buffer, { desc = 'git Reset buffer' })
+                map('n', '<leader>hp', gs.preview_hunk, { desc = 'preview git hunk' })
+                map('n', '<leader>hb', function()
+                    gs.blame_line { full = false }
+                end, { desc = 'git blame line' })
+                map('n', '<leader>hd', gs.diffthis, { desc = 'git diff against index' })
+                map('n', '<leader>hD', function()
+                    gs.diffthis '~'
+                end, { desc = 'git diff against last commit' })
+
+                -- Toggles
+                map('n', '<leader>tb', gs.toggle_current_line_blame, { desc = 'toggle git blame line' })
+                map('n', '<leader>td', gs.toggle_deleted, { desc = 'toggle git show deleted' })
+
+                -- Text object
+                map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'select git hunk' })
+            end,
+        },
+    },
 
     {
         -- Tokyonight theme by Folke
@@ -286,7 +286,7 @@ vim.wo.number = true
 vim.o.relativenumber = true
 
 -- Always stay on center of screen vertically
-vim.o.scrolloff = 22
+vim.o.scrolloff = 100
 
 
 -- Sync clipboard between OS and Neovim.
@@ -376,7 +376,8 @@ local function find_git_root()
     end
 
     -- Find the Git root directory from the current file's path
-    local git_root = vim.fn.systemlist('git -C ' .. vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')[1]
+    local git_root = vim.fn.systemlist('git -C ' .. vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')
+        [1]
     if vim.v.shell_error ~= 0 then
         print 'Not a git repository. Searching on current working directory'
         return cwd
@@ -545,7 +546,7 @@ require('which-key').register {
     ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
     ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
     ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-    ['<leader>n'] = { name = '[N]o Neck Pain', _ = 'which_key_ignore' },
+    ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
 }
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
@@ -664,16 +665,11 @@ cmp.setup {
 
 -- Save all with <C-s>
 vim.keymap.set({ 'n', 'i', 'v' }, '<C-s>', '<cmd>wall<cr>', { silent = true })
+-- Choose all with <C-a>
+vim.keymap.set('n', '<C-a>', 'gg<S-v>G', { silent = true })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
--- No Neck Pain setup
-require("no-neck-pain").setup({
-    width = 100,
-    mappings = {
-        enabled = true,
-    }
-})
 
 -- disable netrw
 vim.g.loaded_netrw = 1
