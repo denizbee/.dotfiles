@@ -568,14 +568,16 @@ require('mason-lspconfig').setup()
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-    -- clangd = {},
-    -- gopls = {},
-    -- pyright = {},
-    -- rust_analyzer = {},
-    -- tsserver = {},
-    -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+    clangd                = {},
+    gopls                 = {},
+    rust_analyzer         = {},
+    tsserver              = {},
+    emmet_language_server = {
+        filetypes = { 'html', 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'svelte' },
+    },
+    eslint                = {},
 
-    lua_ls = {
+    lua_ls                = {
         Lua = {
             workspace = { checkThirdParty = false },
             telemetry = { enable = false },
@@ -685,3 +687,12 @@ vim.wo.fillchars = 'eob: '
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
+
+-- TSServer disable suggestions
+require "lspconfig".tsserver.setup {
+    init_options = {
+        preferences = {
+            disableSuggestions = true,
+        }
+    }
+}
