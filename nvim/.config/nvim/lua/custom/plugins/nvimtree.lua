@@ -25,7 +25,7 @@ return {
                 root_folder_modifier = ':t',
                 icons = {
                     glyphs = {
-                        default = '',
+                        default = '',
                         symlink = '',
                         bookmark = '◉',
                         git = {
