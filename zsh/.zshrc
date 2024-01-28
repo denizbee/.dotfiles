@@ -1,3 +1,4 @@
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -71,12 +72,16 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    fzf
+    zsh-autosuggestions
     git
+    brew
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+DISABLE_MAGIC_FUNCTIONS=true
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
