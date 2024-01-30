@@ -190,13 +190,7 @@ require('lazy').setup({
     },
 
     {
-        -- Tokyonight theme by Folke
         'folke/tokyonight.nvim',
-        style = "night",
-        priority = 1000,
-        config = function()
-            vim.cmd.colorscheme 'tokyonight'
-        end,
     },
 
     {
@@ -679,7 +673,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle file tree" })
 
 -- Hide fillchars
-vim.wo.fillchars = 'eob: '
+-- vim.wo.fillchars = 'eob: '
 
 -- Indentation options and column
 vim.opt.expandtab = true
@@ -694,3 +688,16 @@ require "lspconfig".tsserver.setup {
         }
     }
 }
+
+-- Disable "warning: multiple different client offset_encodings detected for
+-- buffer, this is not supported yet" warning
+local notify = vim.notify
+vim.notify = function(msg, ...)
+    if msg:match("warning: multiple different client offset_encodings") then
+        return
+    end
+
+    notify(msg, ...)
+end
+
+vim.cmd.colorscheme 'tokyonight-night'
