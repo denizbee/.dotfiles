@@ -9,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="refined"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -26,14 +26,14 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -81,7 +81,6 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-DISABLE_MAGIC_FUNCTIONS=true
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -104,8 +103,7 @@ DISABLE_MAGIC_FUNCTIONS=true
 # For a full list of active aliases, run `alias`.
 #
 alias zshconfig="nvim ~/.zshrc"
+alias srczsh="source ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias vim="nvim"
-alias sftpdev='sshpass -p 12Ozan34, sftp b2220356166@dev.cs.hacettepe.edu.tr'
-alias sshdev='sshpass -p 12Ozan34, ssh b2220356166@dev.cs.hacettepe.edu.tr'
 alias nvimconfig="cd ~/.config/nvim"

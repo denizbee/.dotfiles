@@ -528,10 +528,10 @@ local servers = {
     rust_analyzer         = {},
     tsserver              = {},
     emmet_language_server = {
-        filetypes = { 'html', 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'svelte', 'gotmpl', 'template' },
+        filetypes = { 'html', 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'svelte', },
     },
     eslint                = {},
-    html                  = { filetypes = { 'html', 'template' } },
+    html                  = {},
     lua_ls                = {
         Lua = {
             workspace = { checkThirdParty = false },
@@ -634,7 +634,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle file tree" })
 
 -- Hide fillchars
--- vim.wo.fillchars = 'eob: '
+vim.wo.fillchars = 'eob: '
 
 -- Indentation options and column
 vim.opt.expandtab = true
