@@ -528,10 +528,12 @@ local servers = {
     rust_analyzer         = {},
     tsserver              = {},
     emmet_language_server = {
-        filetypes = { 'html', 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'svelte', },
+        filetypes = { 'html', 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'svelte', 'template' },
     },
     eslint                = {},
-    html                  = {},
+    html                  = {
+        filetypes = { 'html', 'template' }
+    },
     lua_ls                = {
         Lua = {
             workspace = { checkThirdParty = false },

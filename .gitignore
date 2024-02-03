@@ -36,4 +36,4 @@
 ehthumbs.db
 Thumbs.db
 
-tmux/.config/tmux/plugins
+.config/tmux/plugins
