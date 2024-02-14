@@ -1,15 +1,23 @@
 return {
     {
-        "nvimtools/none-ls.nvim",
-        event = "VeryLazy",
-        opts = function()
+        "jay-babu/mason-null-ls.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "williamboman/mason.nvim",
+            "nvimtools/none-ls.nvim",
+        },
+        config = function()
             local null_ls = require("null-ls")
             null_ls.setup({
                 sources = {
-                    require("null-ls").builtins.formatting.prettierd,
+                    null_ls.builtins.formatting.prettierd,
+                    null_ls.builtins.formatting.autopep8,
                 },
             })
-        end
+            require("mason-null-ls").setup({
+                ensure_installed = { "prettierd", "autopep8" }
+            })
+        end,
     },
     {
         'phaazon/hop.nvim',
