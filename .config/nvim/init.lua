@@ -154,6 +154,14 @@ require('lazy').setup({
     },
 
     {
+        'navarasu/onedark.nvim'
+    },
+
+    {
+        { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... }
+    },
+
+    {
         -- Set lualine as statusline
         'nvim-lualine/lualine.nvim',
         -- See `:help lualine.txt`
@@ -530,7 +538,7 @@ local servers = {
     emmet_language_server = {
         filetypes = { 'html', 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'svelte', 'template' },
     },
-    eslint                = {},
+    cssls                 = {},
     html                  = {
         filetypes = { 'html', 'template' }
     },
@@ -665,3 +673,4 @@ end
 
 -- Set colorscheme
 vim.cmd.colorscheme 'tokyonight-night'
+vim.cmd([[colorscheme gruvbox]])

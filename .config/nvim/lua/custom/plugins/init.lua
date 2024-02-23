@@ -12,10 +12,11 @@ return {
                 sources = {
                     null_ls.builtins.formatting.prettierd,
                     null_ls.builtins.formatting.autopep8,
+                    null_ls.builtins.diagnostics.eslint_d,
                 },
             })
             require("mason-null-ls").setup({
-                ensure_installed = { "prettierd", "autopep8" }
+                ensure_installed = { "prettierd", "autopep8", "eslint_d" }
             })
         end,
     },
