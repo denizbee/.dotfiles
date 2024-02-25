@@ -101,8 +101,16 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-alias zshconfig="nvim ~/.dotfiles/zsh/.zshrc"
-alias srczsh="source ~/.zshrc"
 alias vim="nvim"
-alias nvimconfig="cd ~/.dotfiles/nvim/.config/nvim && nvim"
-alias tmuxconfig="cd ~/.dotfiles/tmux/.config/tmux && nvim"
+alias nvimconfig="cd ~/.dotfiles/.config/nvim && nvim"
+alias tmuxconfig="cd ~/.dotfiles/.config/tmux && nvim"
+alias zshconfig="nvim ~/.dotfiles/.zshrc"
+alias kittyconfig="nvim ~/.dotfiles/.config/kitty/kitty.conf"
+alias srczsh="source ~/.zshrc"
+
+
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Homebrew: Python
+export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"

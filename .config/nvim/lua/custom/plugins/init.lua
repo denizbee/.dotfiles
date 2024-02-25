@@ -12,11 +12,10 @@ return {
                 sources = {
                     null_ls.builtins.formatting.prettierd,
                     null_ls.builtins.formatting.autopep8,
-                    null_ls.builtins.diagnostics.eslint_d,
                 },
             })
             require("mason-null-ls").setup({
-                ensure_installed = { "prettierd", "autopep8", "eslint_d" }
+                ensure_installed = { "prettierd", "autopep8", }
             })
         end,
     },
@@ -36,27 +35,29 @@ return {
         end
 
     },
-    -- {
-    --     "Exafunction/codeium.vim",
-    --     event = "BufEnter",
-    --     config = function()
-    --         vim.g.codeium_no_map_tab = 1
-    --         vim.keymap.set('i', '<C-g>', function() return vim.fn['codeium#Accept']() end, { expr = true })
-    --         vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
-    --         vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
-    --         vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
-    --     end
-    -- },
-    --
+
     {
-        "github/copilot.vim",
-        event = "InsertEnter",
+        "Exafunction/codeium.vim",
+        event = "BufEnter",
         config = function()
-            vim.g.copilot_no_tab_map = true
-            vim.g.copilot_enabled = false
-            vim.api.nvim_set_keymap("i", "<C-f>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
-        end,
+            vim.g.codeium_no_map_tab = 1
+            vim.g.codeium_enabled = false
+            vim.keymap.set('i', '<c-f>', function() return vim.fn['codeium#Accept']() end, { expr = true })
+            vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+            vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+            vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+        end
     },
+
+    -- {
+    --     "github/copilot.vim",
+    --     event = "InsertEnter",
+    --     config = function()
+    --         vim.g.copilot_no_tab_map = true
+    --         vim.g.copilot_enabled = false
+    --         vim.api.nvim_set_keymap("i", "<C-f>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+    --     end,
+    -- },
     {
         "windwp/nvim-autopairs",
         -- Optional dependency

@@ -535,6 +535,7 @@ local servers = {
     gopls                 = {},
     rust_analyzer         = {},
     tsserver              = {},
+    eslint                = {},
     emmet_language_server = {
         filetypes = { 'html', 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'svelte', 'template' },
     },
@@ -673,4 +674,6 @@ end
 
 -- Set colorscheme
 vim.cmd.colorscheme 'tokyonight-night'
-vim.cmd([[colorscheme gruvbox]])
+
+-- Blinking cursor in insert mode
+vim.o.guicursor = 'i:ver20-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'
