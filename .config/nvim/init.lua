@@ -154,7 +154,7 @@ require('lazy').setup({
     },
 
     {
-        'navarasu/onedark.nvim'
+        'navarasu/onedark.nvim',
     },
 
     {
@@ -645,8 +645,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle file tree" })
 
 -- Hide fillchars
-vim.wo.fillchars = 'eob: '
-
+vim.opt.fillchars = { eob = ' ' }
 -- Indentation options and column
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
@@ -672,8 +671,23 @@ vim.notify = function(msg, ...)
     notify(msg, ...)
 end
 
--- Set colorscheme
-vim.cmd.colorscheme 'tokyonight-night'
+-- Tokyonight theme setup
+require("tokyonight").setup({
+    transparent = true,
+    styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+    },
+})
+
+-- Onenight theme setup
+require('onedark').setup({
+    style = 'dark',
+    transparent = true,
+    lualine = { transparent = true, }
+})
+
+vim.cmd.colorscheme 'onedark'
 
 -- Blinking cursor in insert mode
 vim.o.guicursor = 'i:ver20-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'

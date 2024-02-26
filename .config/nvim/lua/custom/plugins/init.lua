@@ -11,11 +11,12 @@ return {
             null_ls.setup({
                 sources = {
                     null_ls.builtins.formatting.prettierd,
-                    null_ls.builtins.formatting.autopep8,
                 },
             })
             require("mason-null-ls").setup({
-                ensure_installed = { "prettierd", "autopep8", }
+                ensure_installed = {
+                    "prettierd",
+                }
             })
         end,
     },
@@ -72,10 +73,6 @@ return {
                 cmp_autopairs.on_confirm_done()
             )
         end,
-    },
-    {
-        "xiyaowong/transparent.nvim",
-        lazy = false,
     },
     {
         "christoomey/vim-tmux-navigator",
