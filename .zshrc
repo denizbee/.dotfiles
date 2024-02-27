@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="gozilla"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -103,9 +103,11 @@ source $ZSH/oh-my-zsh.sh
 #
 alias vim="nvim"
 alias nvimconfig="cd ~/.dotfiles/.config/nvim && nvim"
-alias tmuxconfig="cd ~/.dotfiles/.config/tmux && nvim"
+alias tmuxconfig="nvim ~/.dotfiles/.config/tmux/tmux.conf"
 alias zshconfig="nvim ~/.dotfiles/.zshrc"
 alias kittyconfig="nvim ~/.dotfiles/.config/kitty/kitty.conf"
+alias skhdconfig="nvim ~/.dotfiles/.config/skhd/skhdrc"
+alias yabaiconfig="nvim ~/.dotfiles/.config/yabai/yabairc"
 alias srczsh="source ~/.zshrc"
 
 

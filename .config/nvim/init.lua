@@ -652,13 +652,13 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 
 -- TSServer disable suggestions
-require "lspconfig".tsserver.setup {
-    init_options = {
-        preferences = {
-            disableSuggestions = true,
-        }
-    }
-}
+-- require "lspconfig".tsserver.setup {
+--     init_options = {
+--         preferences = {
+--             disableSuggestions = true,
+--         }
+--     }
+-- }
 
 -- Disable "warning: multiple different client offset_encodings detected for
 -- buffer, this is not supported yet" warning
