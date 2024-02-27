@@ -4,9 +4,11 @@ alt-h : yabai -m window --focus west
 alt-k : yabai -m window --focus north
 alt-l : yabai -m window --focus east
 
-# maximize and balance
+# maximize, balance, rotate
 ctrl + alt - m : yabai -m window --toggle zoom-fullscreen
-ctrl + alt - r : yabai -m space --balance
+ctrl + alt - b : yabai -m space --balance
+ctrl + alt - r : yabai -m space --rotate 270
+ctrl + alt + shift - r : yabai -m space --rotate 90
 
 # move windows to space
 shift + alt - 1 : yabai -m window --space 1;
@@ -19,10 +21,11 @@ shift + alt - 7 : yabai -m window --space 7;
 shift + alt - 8 : yabai -m window --space 8;
 shift + alt - 9 : yabai -m window --space 9;
 
-# start-stop yabai
-ctrl + shift - y : yabai --start-service
-ctrl + shift - u : yabai --stop-service
-
 # app hotkeys
-ctrl + shift - f : open -na /Applications/Firefox.app
+ctrl + shift - s : open -an Safari
 ctrl + shift - t : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+ctrl + shift - g : open "http://www.google.com"
+ctrl + shift - w : open "https://web.whatsapp.com"
+
+# Reset yabai and skhd
+ctrl + alt + cmd - r : yabai --restart-service && skhd --restart-service
