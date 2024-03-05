@@ -100,19 +100,13 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
 alias vim="nvim"
 alias nvimconfig="cd ~/.dotfiles/.config/nvim && nvim"
 alias tmuxconfig="nvim ~/.dotfiles/.config/tmux/tmux.conf"
 alias zshconfig="nvim ~/.dotfiles/.zshrc"
-alias kittyconfig="nvim ~/.dotfiles/.config/kitty/kitty.conf"
-alias skhdconfig="nvim ~/.dotfiles/.config/skhd/skhdrc"
-alias yabaiconfig="nvim ~/.dotfiles/.config/yabai/yabairc"
 alias srczsh="source ~/.zshrc"
 
+# Go
+export PATH=$PATH:/usr/local/go/bin
 
-# Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Homebrew: Python
-export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
