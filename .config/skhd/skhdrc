@@ -16,7 +16,7 @@ ctrl + alt - b : yabai -m space --balance
 ctrl + alt - r : yabai -m space --rotate 270
 ctrl + alt + shift - r : yabai -m space --rotate 90
 
-# move windows to space
+# space operations
 shift + alt - 1 : yabai -m window --space 1;
 shift + alt - 2 : yabai -m window --space 2;
 shift + alt - 3 : yabai -m window --space 3;
@@ -26,10 +26,13 @@ shift + alt - 6 : yabai -m window --space 6;
 shift + alt - 7 : yabai -m window --space 7;
 shift + alt - 8 : yabai -m window --space 8;
 shift + alt - 9 : yabai -m window --space 9;
+shift + alt - y : yabai -m space --layout bsp
+shift + alt - f : yabai -m space --layout float
 
 # app hotkeys
-cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
-cmd + shift - return : open -n -a "Firefox"
+alt - t : open -na /Applications/Alacritty.app/
+alt - b: open -n -a "Firefox"
+alt - f: open -a "Finder"
 
 # Reset yabai and skhd
 ctrl + alt + cmd - r : yabai --restart-service && skhd --restart-service
