@@ -116,3 +116,4 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Homebrew: Python
 export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
