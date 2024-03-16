@@ -687,7 +687,7 @@ require('onedark').setup({
     lualine = { transparent = true, }
 })
 
-vim.cmd.colorscheme 'tokyonight'
+vim.cmd.colorscheme 'onedark'
 
 -- Blinking cursor in insert mode
 vim.o.guicursor = 'i:ver20-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'
