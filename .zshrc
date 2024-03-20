@@ -105,6 +105,8 @@ alias nvimconfig="cd ~/.dotfiles/.config/nvim && nvim"
 alias tmuxconfig="nvim ~/.dotfiles/.config/tmux/tmux.conf"
 alias zshconfig="nvim ~/.dotfiles/.zshrc"
 alias srczsh="source ~/.zshrc"
+alias sshmac="ssh denizbee@192.168.1.105"
+alias gpush="git add .; git commit -m 'progressed'; git push"
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
