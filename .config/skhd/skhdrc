@@ -1,0 +1,37 @@
+# Changing window focus
+alt-j : yabai -m window --focus south
+alt-h : yabai -m window --focus west
+alt-k : yabai -m window --focus north
+alt-l : yabai -m window --focus east
+
+# Swap Windows
+ctrl + alt - h : yabai -m window --swap west
+ctrl + alt - j : yabai -m window --swap south
+ctrl + alt - k : yabai -m window --swap north
+ctrl + alt - l : yabai -m window --swap east
+
+# maximize, balance, rotate
+ctrl + alt - m : yabai -m window --toggle zoom-fullscreen
+ctrl + alt - b : yabai -m space --balance
+ctrl + alt - r : yabai -m space --rotate 270
+ctrl + alt + shift - r : yabai -m space --rotate 90
+
+# space operations
+shift + alt - 1 : yabai -m window --space 1;
+shift + alt - 2 : yabai -m window --space 2;
+shift + alt - 3 : yabai -m window --space 3;
+shift + alt - 4 : yabai -m window --space 4;
+shift + alt - 5 : yabai -m window --space 5;
+shift + alt - 6 : yabai -m window --space 6;
+shift + alt - 7 : yabai -m window --space 7;
+shift + alt - 8 : yabai -m window --space 8;
+shift + alt - 9 : yabai -m window --space 9;
+shift + alt - y : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "float" else "bsp" end')
+
+# app hotkeys
+alt - t : open -na /Applications/Alacritty.app/
+alt - b: open -n -a "Brave Browser"
+alt - f: open -a "Finder"
+
+# Reset yabai and skhd
+ctrl + alt + cmd - r : yabai --restart-service && skhd --restart-service
