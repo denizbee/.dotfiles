@@ -687,6 +687,7 @@ require('onedark').setup({
     lualine = { transparent = true, }
 })
 
+-- Set the default theme
 vim.cmd.colorscheme 'onedark'
 
 -- Blinking cursor in insert mode
