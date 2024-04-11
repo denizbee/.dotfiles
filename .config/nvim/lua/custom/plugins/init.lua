@@ -1,5 +1,74 @@
 return {
     {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("nvim-tree").setup({
+                update_cwd = true,
+                hijack_cursor = true,
+                git = {
+                    ignore = false,
+                },
+                actions = {
+                    open_file = {
+                        resize_window = true,
+                    },
+                },
+                view = {
+                    width = 32,
+                },
+                renderer = {
+                    highlight_git = true,
+                    root_folder_modifier = ':t',
+                    icons = {
+                        glyphs = {
+                            default = '',
+                            symlink = '',
+                            bookmark = '◉',
+                            git = {
+                                unstaged = '',
+                                staged = '',
+                                unmerged = '',
+                                renamed = '',
+                                deleted = '',
+                                untracked = '',
+                                ignored = '',
+                            },
+                            folder = {
+                                default = '',
+                                open = '',
+                                symlink = '',
+                            },
+                        },
+                        show = {
+                            git = false,
+                            file = true,
+                            folder = true,
+                            folder_arrow = false,
+                        },
+                    },
+                    indent_markers = {
+                        enable = true,
+                    },
+                },
+            })
+        end,
+    },
+    {
+
+        'echasnovski/mini.nvim',
+        version = false,
+        config = function()
+            require('mini.ai').setup { n_lines = 500 }
+            require('mini.surround').setup()
+        end
+
+    },
+    {
         "jay-babu/mason-null-ls.nvim",
         event = { "BufReadPre", "BufNewFile" },
         dependencies = {
@@ -74,5 +143,50 @@ return {
         config = function()
             require("nvim-ts-autotag").setup()
         end
+    },
+    {
+        "RRethy/vim-illuminate",
+        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+        opts = {
+            delay = 200,
+            large_file_cutoff = 2000,
+            large_file_overrides = {
+                providers = { "lsp" },
+            },
+        },
+        config = function(_, opts)
+            require("illuminate").configure(opts)
+
+            local function map(key, dir, buffer)
+                vim.keymap.set("n", key, function()
+                    require("illuminate")["goto_" .. dir .. "_reference"](false)
+                end, { desc = dir:sub(1, 1):upper() .. dir:sub(2) .. " Reference", buffer = buffer })
+            end
+
+            map("]]", "next")
+            map("[[", "prev")
+
+            -- also set it after loading ftplugins, since a lot overwrite [[ and ]]
+            vim.api.nvim_create_autocmd("FileType", {
+                callback = function()
+                    local buffer = vim.api.nvim_get_current_buf()
+                    map("]]", "next", buffer)
+                    map("[[", "prev", buffer)
+                end,
+            })
+        end,
+        keys = {
+            { "]]", desc = "Next Reference" },
+            { "[[", desc = "Prev Reference" },
+        },
+    },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        }
     },
 }
