@@ -105,9 +105,10 @@ alias vim="nvim"
 alias nvimconfig="cd ~/.dotfiles/.config/nvim && nvim"
 alias tmuxconfig="nvim ~/.dotfiles/.config/tmux/tmux.conf"
 alias zshconfig="nvim ~/.dotfiles/.zshrc"
-alias kittyconfig="nvim ~/.dotfiles/.config/kitty/kitty.conf"
+alias alacrittyconfig="nvim ~/.dotfiles/.config/alacritty/alacritty.toml"
 alias skhdconfig="nvim ~/.dotfiles/.config/skhd/skhdrc"
 alias yabaiconfig="nvim ~/.dotfiles/.config/yabai/yabairc"
+alias barconfig="nvim ~/.dotfiles/.config/sketchybar/sketchybarrc"
 alias srczsh="source ~/.zshrc"
 
 

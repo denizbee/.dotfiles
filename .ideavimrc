@@ -13,7 +13,6 @@ sethandler <c-k> a:vim
 sethandler <c-d> a:vim
 sethandler <c-r> a:vim
 sethandler <c-o> a:vim
-sethandler <c-n> a:vim
 
 noremap \e :e ~/.ideavimrc<CR>
 nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
@@ -22,13 +21,14 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
-nnoremap <TAB> :action NextTab<CR>
-nnoremap <s-TAB> :action PreviousTab<CR>
+nnoremap <c-TAB> :action NextTab<CR>
+nnoremap <c-s-TAB> :action PreviousTab<CR>
 nnoremap q :action HideActiveWindow<CR>
 nnoremap <Leader>x :action CloseContent<CR>
 
 nnoremap ]d :action GotoNextError<CR>
 nnoremap [d :action GotoPreviousError<CR>
+nnoremap <leader>ca :action ShowIntentionActions<CR>
 vnoremap < <gv
 vnoremap > >gv
 nnoremap <leader>/ :action CommentByLineComment<CR>
@@ -47,8 +47,6 @@ nnoremap <c-u> <c-u>zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-nnoremap <c-n> :action ActivateProjectToolWindow<CR>
-nnoremap <leader>cnd :action NewDir<CR>
 if has('ide')
     if &ide =~? 'intellij idea'
         nnoremap <leader>cnc :action NewClass<CR>
@@ -62,4 +60,7 @@ endif
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
 
+nnoremap  <leader>e :NERDTreeToggle<CR>
