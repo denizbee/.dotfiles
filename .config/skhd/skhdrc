@@ -30,4 +30,4 @@ alt - b: open -n -a "Brave Browser"
 alt - f: open -a "Finder"
 
 # Reset yabai, skhd and sketchybar
-ctrl + alt + cmd - r : yabai --restart-service && skhd --restart-service && sketchybar --reload
+ctrl + alt + cmd - r : yabai --restart-service && skhd --restart-service
