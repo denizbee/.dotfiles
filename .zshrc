@@ -102,7 +102,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 alias vim="nvim"
-alias nvimconfig="cd ~/.config/nvim && nvim init.lua"
+alias vimconfig="cd ~/.config/nvim && nvim init.lua"
 alias tmuxconfig="nvim ~/.dotfiles/.config/tmux/tmux.conf"
 alias zshconfig="nvim ~/.dotfiles/.zshrc"
 alias alacrittyconfig="nvim ~/.dotfiles/.config/alacritty/alacritty.toml"

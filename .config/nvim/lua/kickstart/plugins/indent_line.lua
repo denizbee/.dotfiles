@@ -4,11 +4,14 @@ return {
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help ibl`
     main = 'ibl',
-    opts = {
-      indent = {
-        char = '│',
-        tab_char = '│',
-      },
-    },
+    config = function()
+      require('ibl').setup {
+
+        indent = {
+          char = '│',
+          tab_char = '│',
+        },
+      }
+    end,
   },
 }
