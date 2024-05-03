@@ -25,9 +25,12 @@ shift + alt - d : yabai -m window --space 5;
 shift + alt - y : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "float" else "bsp" end')
 
 # app hotkeys
-alt - return: open -na /Applications/Alacritty.app/
-alt - b: open -n -a "Brave Browser"
+alt - return: open -na /Applications/kitty.app/
+alt - s: open -a "System Settings"
+alt - b: open -na "Brave Browser"
+alt - g: open -na "Google Chrome"
 alt - f: open -a "Finder"
+alt - m: open -a "Spotify"
 
 # Reset yabai, skhd and sketchybar
 ctrl + alt + cmd - r : yabai --restart-service && skhd --restart-service
