@@ -86,6 +86,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>i', vim.diagnostic.open_float, { desc = 'Show diagnostic hover [I]nfo' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -341,6 +342,11 @@ require('lazy').setup({
       {
         'j-hui/fidget.nvim',
         opts = {
+          notification = {
+            window = {
+              winblend = 0,
+            },
+          },
           progress = {
             suppress_on_insert = true, -- Suppress new messages while in insert mode
           },
@@ -697,36 +703,38 @@ require('lazy').setup({
 
   -- Set theme
   {
-    'navarasu/onedark.nvim',
+    'catppuccin/nvim',
+    name = 'catppuccin',
     priority = 1000,
     config = function()
-      require('onedark').setup {
-        style = 'darker',
-        transparent = 'true',
-        code_style = {
-          keywords = 'italic',
-        },
-        lualine = {
-          transparent = true,
-        },
-        diagnostics = {
-          undercurl = false,
-        },
-        highlights = {
-          IndentBlanklineChar = { fg = '#3b4261', nocombine = true },
-          IndentBlanklineContextChar = { fg = '#9d7cd8', nocombine = true },
-          IblIndent = { fg = '#3b4261', fmt = 'nocombine' },
-          IblScope = { fg = '#9d7cd8', fmt = 'nocombine' },
+      require('catppuccin').setup {
+        transparent_background = true,
+        integrations = {
+          fidget = true,
         },
       }
     end,
     init = function()
-      vim.cmd.colorscheme 'onedark'
+      vim.cmd.colorscheme 'catppuccin'
     end,
   },
 
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {
+      vim.keymap.set('n', ']t', function()
+        require('todo-comments').jump_next()
+      end, { desc = 'Next [t]odo comment' }),
+
+      vim.keymap.set('n', '[t', function()
+        require('todo-comments').jump_prev()
+      end, { desc = 'Previous [t]odo comment' }),
+      signs = false,
+    },
+  },
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
