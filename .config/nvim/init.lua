@@ -11,15 +11,8 @@ vim.g.have_nerd_font = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- [[ Setting options ]]
--- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
-
 -- Make line numbers default
 vim.opt.number = true
--- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
@@ -27,6 +20,9 @@ vim.opt.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
+
+-- Global statusline
+vim.opt.laststatus = 3
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -173,21 +169,6 @@ require('lazy').setup({
     },
   },
 
-  -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
-  --
-  -- This is often very useful to both group configuration, as well as handle
-  -- lazy loading plugins that don't need to be loaded immediately at startup.
-  --
-  -- For example, in the following configuration, we use:
-  --  event = 'VimEnter'
-  --
-  -- which loads which-key before all the UI elements are loaded. Events can be
-  -- normal autocommands events (`:help autocmd-events`).
-  --
-  -- Then, because we use the `config` key, the configuration only runs
-  -- after the plugin has been loaded:
-  --  config = function() ... end
-
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
@@ -211,28 +192,17 @@ require('lazy').setup({
     end,
   },
 
-  -- NOTE: Plugins can specify dependencies.
-  --
-  -- The dependencies are proper plugin specifications as well - anything
-  -- you do for a plugin at the top level, you can do for a dependency.
-  --
-  -- Use the `dependencies` key to specify the dependencies of a particular plugin
-
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
     branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      { -- If encountering errors, see telescope-fzf-native README for installation instructions
+      {
         'nvim-telescope/telescope-fzf-native.nvim',
 
-        -- `build` is used to run some command when the plugin is installed/updated.
-        -- This is only run then, not every time Neovim starts up.
         build = 'make',
 
-        -- `cond` is a condition used to determine whether this plugin should be
-        -- installed and loaded.
         cond = function()
           return vim.fn.executable 'make' == 1
         end,
@@ -703,6 +673,10 @@ require('lazy').setup({
     config = function()
       require('catppuccin').setup {
         transparent_background = true,
+        styles = {
+          keywords = { 'italic' },
+          conditionals = {},
+        },
         integrations = {
           fidget = true,
         },
