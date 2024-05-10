@@ -15,14 +15,14 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- Color column at 80
+vim.opt.colorcolumn = '100'
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
-
--- Global statusline
-vim.opt.laststatus = 3
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -667,23 +667,16 @@ require('lazy').setup({
 
   -- Set theme
   {
-    'catppuccin/nvim',
-    name = 'catppuccin',
+
+    'folke/tokyonight.nvim',
     priority = 1000,
     config = function()
-      require('catppuccin').setup {
-        transparent_background = true,
-        styles = {
-          keywords = { 'italic' },
-          conditionals = {},
-        },
-        integrations = {
-          fidget = true,
-        },
+      require('tokyonight').setup {
+        style = 'night',
       }
     end,
     init = function()
-      vim.cmd.colorscheme 'catppuccin'
+      vim.cmd.colorscheme 'tokyonight'
     end,
   },
 
@@ -716,11 +709,23 @@ require('lazy').setup({
       require('mini.ai').setup { n_lines = 500 }
 
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
-      require('mini.surround').setup()
+
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
+      require('mini.surround').setup()
 
+      local statusline = require 'mini.statusline'
+      -- set use_icons to true if you have a Nerd Font
+      statusline.setup { use_icons = vim.g.have_nerd_font }
+
+      -- You can configure sections in the statusline by overriding their
+      -- default behavior. For example, here we set the section for
+      -- cursor location to LINE:COLUMN
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_location = function()
+        return '%2l:%-2v'
+      end
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },

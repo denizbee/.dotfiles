@@ -2,7 +2,7 @@ set clipboard+=unnamed
 set clipboard+=ideaput
 set relativenumber
 set incsearch
-set scrolloff=100
+set scrolloff=10
 set ideajoin
 set showmode
 
@@ -28,6 +28,7 @@ nnoremap <Leader>x :action CloseContent<CR>
 
 nnoremap ]d :action GotoNextError<CR>
 nnoremap [d :action GotoPreviousError<CR>
+nnoremap <leader>i :action ShowErrorDescription<CR>
 nnoremap <leader>ca :action ShowIntentionActions<CR>
 vnoremap < <gv
 vnoremap > >gv
@@ -41,7 +42,9 @@ nnoremap <leader>zo :action ExpandAllRegions<CR>
 nnoremap <leader>sf :action GotoFile<CR>
 nnoremap <leader>sc :action GotoClass<CR>
 nnoremap <leader>sg :action FindInPath<CR>
-nnoremap gr :action FindUsages<CR>
+nnoremap <leader>f :action ReformatCode<CR>
+
+
 nnoremap <c-d> <c-d>zz
 nnoremap <c-u> <c-u>zz
 nnoremap n nzzzv

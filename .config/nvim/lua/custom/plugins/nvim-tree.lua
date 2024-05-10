@@ -21,6 +21,7 @@ return {
         api.config.mappings.default_on_attach(bufnr)
 
         -- custom mappings
+        vim.keymap.set('n', 's', api.node.open.vertical, opts 'Open in vertical split')
       end
 
       require('nvim-tree').setup {

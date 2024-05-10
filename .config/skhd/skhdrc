@@ -25,7 +25,7 @@ shift + alt - d : yabai -m window --space 5;
 shift + alt - y : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "float" else "bsp" end')
 
 # app hotkeys
-alt - return: open -na /Applications/kitty.app/
+alt - return: open -na /Applications/Alacritty.app/
 alt - s: open -a "System Settings"
 alt - b: open -na "Brave Browser"
 alt - g: open -na "Google Chrome"
