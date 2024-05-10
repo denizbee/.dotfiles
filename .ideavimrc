@@ -1,5 +1,6 @@
 set clipboard+=unnamed
 set clipboard+=ideaput
+set number
 set relativenumber
 set incsearch
 set scrolloff=10
@@ -7,6 +8,10 @@ set ideajoin
 set showmode
 
 let mapleader=" "
+
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdtree'
 
 sethandler <c-j> a:vim
 sethandler <c-k> a:vim
@@ -16,7 +21,9 @@ sethandler <c-o> a:vim
 
 noremap \e :e ~/.ideavimrc<CR>
 nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
 nnoremap <leader>zm :action ToggleDistractionFreeMode<CR>
+nnoremap  <leader>e :NERDTreeToggle<CR>
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
@@ -25,7 +32,15 @@ nnoremap <c-TAB> :action NextTab<CR>
 nnoremap <c-s-TAB> :action PreviousTab<CR>
 nnoremap q :action HideActiveWindow<CR>
 nnoremap <Leader>x :action CloseContent<CR>
+nnoremap <leader>sf :action GotoFile<CR>
+nnoremap <leader>sc :action GotoClass<CR>
+nnoremap <leader>sg :action FindInPath<CR>
+nnoremap <leader>cnc :action NewClass<CR>
 
+nnoremap <c-d> <c-d>zz
+nnoremap <c-u> <c-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
 nnoremap ]d :action GotoNextError<CR>
 nnoremap [d :action GotoPreviousError<CR>
 nnoremap <leader>i :action ShowErrorDescription<CR>
@@ -33,37 +48,12 @@ nnoremap <leader>ca :action ShowIntentionActions<CR>
 vnoremap < <gv
 vnoremap > >gv
 nnoremap <leader>/ :action CommentByLineComment<CR>
-vnoremap gc :action CommentByLineComment<CR>
 nnoremap <Leader>rn  :action RenameElement<CR>
 nnoremap zc :action CollapseRegion<CR>
 nnoremap zo :action ExpandRegion<CR>
 nnoremap <leader>zc :action CollapseAllRegions<CR>
 nnoremap <leader>zo :action ExpandAllRegions<CR>
-nnoremap <leader>sf :action GotoFile<CR>
-nnoremap <leader>sc :action GotoClass<CR>
-nnoremap <leader>sg :action FindInPath<CR>
 nnoremap <leader>f :action ReformatCode<CR>
 
 
-nnoremap <c-d> <c-d>zz
-nnoremap <c-u> <c-u>zz
-nnoremap n nzzzv
-nnoremap N Nzzzv
 
-if has('ide')
-    if &ide =~? 'intellij idea'
-        nnoremap <leader>cnc :action NewClass<CR>
-    elseif &ide =~? 'CLion'
-        nnoremap <leader>cnc :action CIDR.Lang.Cpp.NewClass<CR>
-        nnoremap <leader>cns :action CPP.NewCppFile<CR>
-        nnoremap <leader>cnh :action CPP.NewHeaderFile<CR>
-    endif
-endif
-
-Plug 'machakann/vim-highlightedyank'
-Plug 'tpope/vim-commentary'
-Plug 'easymotion/vim-easymotion'
-Plug 'preservim/nerdtree'
-Plug 'tpope/vim-surround'
-
-nnoremap  <leader>e :NERDTreeToggle<CR>
