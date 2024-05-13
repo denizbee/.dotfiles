@@ -476,7 +476,31 @@ require('lazy').setup({
             },
           },
         },
-        jdtls = {},
+        jdtls = {
+          settings = {
+            java = {
+              signatureHelp = { enabled = true },
+              completion = {
+                filteredTypes = {
+                  'com.sun.*',
+                  'io.micrometer.shaded.*',
+                  'java.awt.*',
+                  'jdk.*',
+                  'sun.*',
+                },
+              },
+              codeGeneration = {
+                toString = {
+                  template = '${object.className}{${member.name()}=${member.value}, ${otherMembers}}',
+                },
+                hashCodeEquals = {
+                  useJava7Objects = true,
+                },
+                useBlocks = true,
+              },
+            },
+          },
+        },
         tsserver = {},
         prettierd = {},
         eslint = {},

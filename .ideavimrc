@@ -55,6 +55,8 @@ nnoremap <leader>zc :action CollapseAllRegions<CR>
 nnoremap <leader>zo :action ExpandAllRegions<CR>
 nnoremap <leader>f :action ReformatCode<CR>
 xnoremap <leader>p "\"_dP
+nnoremap <leader>d "\"_d
+vnoremap <leader>d "\"_d
 
 
 
