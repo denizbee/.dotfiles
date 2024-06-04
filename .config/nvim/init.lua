@@ -1,3 +1,6 @@
+-- Set language to en_US
+vim.cmd 'language en_US'
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -14,9 +17,6 @@ vim.g.loaded_netrwPlugin = 1
 -- Make line numbers default
 vim.opt.number = true
 vim.opt.relativenumber = true
-
--- Color column at 80
-vim.opt.colorcolumn = '100'
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -89,8 +89,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-vim.keymap.set('n', '<leader>i', vim.diagnostic.open_float, { desc = 'Show diagnostic hover [I]nfo' })
+vim.keymap.set('n', 'gq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', 'gh', vim.diagnostic.open_float, { desc = 'Show diagnostic [H]over info' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -189,6 +189,7 @@ require('lazy').setup({
         ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
         ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
         ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
+        ['<leader>j'] = { name = 'Harpoon', _ = 'which_key_ignore' },
       }
       -- visual mode
       require('which-key').register({
@@ -467,46 +468,21 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
+        tsserver = {},
+        html = {},
+        prettierd = {},
+        eslint = {},
+        emmet_language_server = {},
+        volar = {},
+
         clangd = {},
+
         gopls = {
           filetypes = { 'go', 'gomod', 'gotmpl', 'gowork', 'template' },
           settings = {
             gopls = {
               templateExtensions = { 'tmpl' },
             },
-          },
-        },
-        jdtls = {
-          settings = {
-            java = {
-              signatureHelp = { enabled = true },
-              completion = {
-                filteredTypes = {
-                  'com.sun.*',
-                  'io.micrometer.shaded.*',
-                  'java.awt.*',
-                  'jdk.*',
-                  'sun.*',
-                },
-              },
-              codeGeneration = {
-                toString = {
-                  template = '${object.className}{${member.name()}=${member.value}, ${otherMembers}}',
-                },
-                hashCodeEquals = {
-                  useJava7Objects = true,
-                },
-                useBlocks = true,
-              },
-            },
-          },
-        },
-        tsserver = {},
-        prettierd = {},
-        eslint = {},
-        emmet_language_server = {
-          filetypes = {
-            'template',
           },
         },
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -575,7 +551,7 @@ require('lazy').setup({
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true }
+        local disable_filetypes = { c = true, cpp = true, html = true }
         return {
           timeout_ms = 500,
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
@@ -702,6 +678,11 @@ require('lazy').setup({
     config = function()
       require('tokyonight').setup {
         style = 'night',
+        transparent = true,
+        styles = {
+          sidebars = 'transparent',
+          floats = 'transparent',
+        },
       }
     end,
     init = function()
@@ -770,9 +751,9 @@ require('lazy').setup({
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby' },
+        additional_vim_regex_highlighting = { 'ruby', 'html' },
       },
-      indent = { enable = true, disable = { 'ruby' } },
+      indent = { enable = true, disable = { 'ruby', 'html' } },
     },
     config = function(_, opts)
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`

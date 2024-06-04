@@ -21,16 +21,18 @@ shift + alt - 1 : yabai -m window --space 1;
 shift + alt - 2 : yabai -m window --space 2;
 shift + alt - 3 : yabai -m window --space 3;
 shift + alt - 4 : yabai -m window --space 4;
-shift + alt - d : yabai -m window --space 5;
+shift + alt - 5 : yabai -m window --space 5;
+shift + alt - d : yabai -m window --space 6;
 shift + alt - y : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "float" else "bsp" end')
 
 # app hotkeys
-alt - return: open -na /Applications/Alacritty.app/
+alt - t: open -a /Applications/iTerm.app/
+alt - n: open -a /Applications/Notability.app/
 alt - s: open -a "System Settings"
-alt - b: open -na "Brave Browser"
 alt - g: open -na "Google Chrome"
 alt - f: open -a "Finder"
 alt - m: open -a "Spotify"
+alt - b: open -a "Arc"
 
 # Reset yabai, skhd and sketchybar
 ctrl + alt + cmd - r : yabai --restart-service && skhd --restart-service

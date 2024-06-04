@@ -1,7 +1,3 @@
-[shell]
-program = "/opt/homebrew/bin/tmux"
-args = ["a"]
-
 [window]
 option_as_alt = "Both"
 padding = {x=5, y=5}

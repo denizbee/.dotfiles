@@ -12,8 +12,8 @@ yabai -m config window_gap 10
 # yabai -m config external_bar all:35:0
 
 # Rules
-yabai -m rule --add app="^(Finder|System Settings|System Information|Activity Monitor|FaceTime|Calculator|Transmission|Spotify)$" manage=off
-yabai -m rule --add title='.*Welcome*.|Checkout*.|.*Configurations|Choose*.|Import*.|.*Charges|Tip*.|Rename*.|Settings' manage=off 
+yabai -m rule --add app="^(Finder|System Settings|System Information|Activity Monitor|FaceTime|Calculator|Transmission|Spotify|Wacom Center|Calendar|Proton VPN)$" manage=off
+yabai -m rule --add title='.*Welcome*.|Checkout*.|.*Configurations|Choose*.|Import*.|.*Charges|Tip*.|Rename*.|Settings|Project Structure' manage=off 
 
 # Focus remaninig window
 yabai -m signal --add event=window_destroyed \
