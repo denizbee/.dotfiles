@@ -670,26 +670,6 @@ require('lazy').setup({
     end,
   },
 
-  -- Set theme
-  {
-
-    'folke/tokyonight.nvim',
-    priority = 1000,
-    config = function()
-      require('tokyonight').setup {
-        style = 'night',
-        transparent = true,
-        styles = {
-          sidebars = 'transparent',
-          floats = 'transparent',
-        },
-      }
-    end,
-    init = function()
-      vim.cmd.colorscheme 'tokyonight'
-    end,
-  },
-
   -- Highlight todo, notes, etc in comments
   {
     'folke/todo-comments.nvim',
@@ -777,7 +757,7 @@ require('lazy').setup({
   -- place them in the correct locations.
 
   -- require 'kickstart.plugins.debug',
-  require 'kickstart.plugins.indent_line',
+  -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.gitsigns',
