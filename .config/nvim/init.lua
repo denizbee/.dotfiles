@@ -1,6 +1,9 @@
 -- Set language to en_US
 vim.cmd 'language en_US'
 
+-- Set theme
+vim.cmd.colorscheme 'retrobox'
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)

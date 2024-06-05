@@ -32,7 +32,7 @@ alt - s: open -a "System Settings"
 alt - g: open -na "Google Chrome"
 alt - f: open -a "Finder"
 alt - m: open -a "Spotify"
-alt - b: open -a "Arc"
+alt - b: open -a "Brave Browser"
 
 # Reset yabai, skhd and sketchybar
 ctrl + alt + cmd - r : yabai --restart-service && skhd --restart-service
